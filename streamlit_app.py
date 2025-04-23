@@ -40,6 +40,9 @@ input_data = {
 # Create a DataFrame from the input data
 input_df = pd.DataFrame([input_data])
 
+# Reorder columns to match the model's expected features
+input_df = input_df[model.feature_names_in_]  
+
 # Make predictions when the user clicks the "Predict" button
 if st.button('Predict'):
     prediction = model.predict(input_df)[0]
